@@ -47,14 +47,22 @@ function hideEmail(email){
 // Write a JavaScript function to parameterize a string
 // Input -> (String) -> ('The Perks Of Being A Wallflower')
 // Output -> (String) -> 'the-perks-of-being-a-wallflower
-
+  function parameterize(input) {
+    return(input.toLowerCase().split(" ").join("-"));
+  }
 
 
 
 // Write a JavaScript function to capitalize the first letter of every Word of a string.
 // Inpput -> (String) -> 'hello Batman from India'
 // Output -> (String) -> 'Hello Batman From India'
-
+   function firstCap(input) {
+       var strf = input.split(' ');
+       for ( i = 0; i < strf.lenght; i++) {
+           strf[i] = strf[i].charAt(0).toUpperCase();
+       }
+       return strf.join('');
+    }
 
 // Write a JavaScript function that takes a string which has lower and upper case letters as a parameter and converts upper case letters to lower case, and lower case letters to upper case.
 // Input (String) -> 'AaBbcVv'
@@ -81,3 +89,4 @@ function hideEmail(email){
 // Write a JavaScript function to humanized number
 // Input -> (Number) -> 1 or 2
 // Output -> (String) -> 1st or 2nd
+Functions

@@ -27,14 +27,12 @@ console.log(long)
 
 
 // Find all the even numbers
-var even = [];
 numbers.forEach(element => {
     if (element % 2 === 0) {
-        even.push(element)
+        console.log(element)
     }
 });
 
-even
 // Find all the odd numbers
 numbers.forEach(element => {
     if (element % 2 === 0) {
@@ -50,19 +48,16 @@ numbers.forEach(element => {
 
 
 // Check if all the numbers in numbers array are divisible by three use array method (every)
-numbers.forEach(element => {
-    if (element % 3 === 0) {
-        console.log(element)
+numbers.every(element => {
+    if (element % 3 == 0) {
+        console.log(element);
     }
 })
 
 
 
 //  Sort Array from smallest to largest
-var ascen = 0;
-numbers.forEach(element => {
-    if(k
-})
+
 
 // Remove the last word in strings
 

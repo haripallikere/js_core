@@ -1,0 +1,38 @@
+body,html{
+    /* background-image: url(picture/clockb.jpg); */
+    background-color: grey;
+    background-size: auto;
+    height: 100%;
+    
+}
+.container {
+	position: relative;
+	/* align-items: center; */
+    /* justify-content: center; */
+    height: 100%;
+    
+}
+.clock {
+	position: relative;
+	width: 250px;
+	height: 250px;
+    background: url(picture/clockbac.png);
+    border-radius: 50%;
+    border: 20px solid orange;
+    /* background-image: url(picture/alt.png);
+    background-repeat: no-repeat;
+    background-size: auto; */
+ 
+}
+.hands { 
+	position: absolute;
+	top: 5%;
+    left: 2%;
+    /* background-image: url(picture/alt.png) */
+}
+.logo {
+    position: absolute;
+    top: 55%;
+    left: 33%;
+    opacity: .50;
+}

@@ -1,0 +1,14 @@
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ul {
+    width: 50%;
+}
+.done {
+    text-decoration: underline;
+}
+.checkbox:checked {
+    text-decoration: line-through;
+}

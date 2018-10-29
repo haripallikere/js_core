@@ -7,7 +7,7 @@ var checkBoxes;
 var todoListArray = [];
 
 function addTodo() {
-    if (!todoText.value) return;
+    if (!todoTe.value) return;
     var obj = {
         text: todoText.value,
         done: false

@@ -1,0 +1,43 @@
+
+body {
+    background: rgb(78, 57, 175);
+width: 100%;
+text-align: center;
+font-size: 16px;
+  }
+  /* .container {
+      width: 30%;
+      margin: 0 auto;
+      text-align: center;
+    
+  } */
+ li {
+     /* text-decoration: none; */
+     border: 1px solid wheat;
+     width: 250px;
+     height: 50px;
+ }
+ ul {
+     text-decoration: line-through;
+ }
+h1 {
+font-size: 3rem;
+color: wheat;
+}
+  
+.drag-list{
+    width: 15rem;
+    height: 2.9rem;;
+}
+.add {
+    height: 3.4rem;
+    padding: 4px;
+    width: 2rem;
+    font-size: 15px;
+}
+.items {
+    width: 40%;
+    height: 3rem;
+    border: 1px solid rgb(132, 209, 132);
+    margin: 4px;
+}

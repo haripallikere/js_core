@@ -7,6 +7,7 @@ var welcome = document.querySelector('.welcome')
 var welcom = document.querySelector('.welcom')
 var form1 = document.getElementById('form1')
 var data = JSON.parse(localStorage.getItem('dataList')) || [];
+let userName = localStorage.getItem('userName') || '';
 
 // add input
 function addItem(e) {
@@ -26,17 +27,21 @@ function addItem(e) {
 function display(data = [], todoList) {
     todoList.innerHTML = data.map((v, i) => {
         return `
-        <li class = "li-items">
+        <li class = "li-items" id="${i}">
           <input type="checkbox" class="check" data-id=${i} id="item${i}" ${v.done ? 'checked' : ''} />
           <label class="editp" for="item${i}">${v.done ? v.name.strike() : v.name}</label>
+          <button class="editbutton" data-id=${i}>edit</button>
+          <button class="bbutton" data-id=${i}>X</button>
         </li>
-        <button class="editbutton" data-id=${i}>edit</button>
-          <button class="bbutton" data-id=${i}>X</button>`;
+        `;
     }).join('');
     localStorage.setItem('dataList', JSON.stringify(data));
 }
 // delete
 function deleteTodo(event) {
+    if (event.target.classList.contains('NewINput')) {
+        return;
+    }
     if (event.target.classList.contains('bbutton')) {
         data.splice(event.target.dataset.id, 1);
     }
@@ -44,6 +49,9 @@ function deleteTodo(event) {
 }
 // toggle
 function toggle(event) {
+    if (event.target.classList.contains('NewINput')) {
+        return;
+    }
     if (event.target.classList.contains('check')) {
         var checked = event.target.dataset.id;
     data[checked].done = !(data[checked].done);
@@ -52,21 +60,33 @@ function toggle(event) {
 }
 // editt
 function edit(event) {
-    var editVal = event.target.dataset.id
-    // console.log('pop')
+    event.preventDefault();
+    if (event.target.classList.contains('NewINput')) {
+        return;
+    }
+    var editVal = event.target.dataset.id;
     if (event.target.classList.contains('editbutton')){
-        data[editVal].name = `<input type="text" class ="NewINput" id=${editVal} value=${data[editVal].name}>`
-       
+        event.preventDefault();
+        // data[editVal].name =
+        //  `<input type="text" class ="NewINput" id=${editVal} value=${data[editVal].name}>`
+        // event.target.parentElement.innerHTML = `<input type="text" class ="NewINput">`;
+
+        // const newValue = event.target.value;
+        // data[editVal].name = newValue;
+        console.log(editVal)
     }
-    display(data, todoList);
-    
+    display(data, todoList);   
 }
+
 function editsave(event) {
-    var editText = document.querySelector("[class=NewINput]");
-    index = event.target.id
-    if (event.keycode == 13) {
-        data[index].name = editText.value
+    if (event.target.classList.contains('.NewINput')) {
+    var editText = document.querySelector('[class=NewINput]');
+    index = event.target.id;
+    if (event.keyCode == 13) {
+        data[index].name = editText.value;
+        
     }
+} 
     display(data,todoList);
 }
 // clear
@@ -76,20 +96,33 @@ function clearAll(event) {
 }
 // welcome
 // var welArray = JSON.parse(localStorage.getItem('welcome')) || [];
-// function welCome() {
-//     var welGret = welcom.value;
-//     welArray.push[welGret];
-//     if(!)
-// }
+function welCome() {
+    if(localStorage.getItem('userName') === null) {
+        const welcomeValue = document.querySelector('.welcom');
+        localStorage.setItem('userName', welcomeValue.value);
+        welcomeValue.style.display = 'none';
+        
+    } else {
+        welcomeValue.style.display = 'none';
+
+    }
+}
 // calling the display function 
+
+
 display(data, todoList);
 
 // event listerners
-form.addEventListener('submit', addItem);
-todoList.addEventListener('click', toggle)
-todoList.addEventListener('click', deleteTodo);
-todoList.addEventListener('click', edit)
-clear.addEventListener('click', clearAll)
-// form1.addEventListener('submit',welCome)
-todoList.addEventListener('submit',editsave);
+
+    form.addEventListener('submit', addItem);
+    todoList.addEventListener('click', toggle)
+    todoList.addEventListener('click', deleteTodo);
+    todoList.addEventListener('click', edit)
+    clear.addEventListener('click', clearAll)
+    todoList.addEventListener('submit',editsave)
+    // form1.addEventListener('submit',welCome)
+    
+
+
+
 

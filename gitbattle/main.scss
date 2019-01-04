@@ -1,0 +1,37 @@
+body {
+    background-color: wheat;
+}
+.players_form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+img {
+    width: 200px;
+    height: 200px;
+    margin: 30px 0;
+    border-radius:  50%;
+}
+
+.battleBtn {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: rgb(163, 55, 55);
+    color: wheat;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+button {
+    width: 100px;
+    height: 30px;
+}
+input {
+    height: 25px;
+}
+.redButton {
+    text-align: center;
+}

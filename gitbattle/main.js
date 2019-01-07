@@ -2,31 +2,33 @@ var battleBtn = document.querySelector(".battleBtn");
 var battle = document.querySelector("#battleProfile");
 
 // playerOne
+var user1Data;
 var player1 = document.querySelector("#player1_form");
 var player1btn = document.querySelector(".player1_btn");
 var userP1 = document.querySelector("#userProfile1");
 var player1form = document.querySelector("#player1");
+var p1;
 // playerTwo
+var user2Data;
 var player2 = document.querySelector("#player2_form");
 var player2btn = document.querySelector(".player2_btn");
 var userP2 = document.querySelector("#userProfile2");
 var player2form = document.querySelector("#player2");
-var p1;
 var p2;
 
 
-// playerone
-var user1Data;
-function fetchData(user1) {
+// fetch data
+function fetchData(user) {
     return new Promise((res,rej) => {
         var a = new XMLHttpRequest();
-        a.open('GET',`https://api.github.com/users/${user1}`);
+        a.open('GET',`https://api.github.com/users/${user}`);
         a.onload = () => res(a);
         a.onerror = () => rej("error!");
         a.send();
     })
 }
 
+// playerone
 function button1(e) {
     e.preventDefault();
     var user1 = player1.value;
@@ -34,45 +36,31 @@ function button1(e) {
         d =>{ 
         user1Data = JSON.parse(d.response);
         // console.log(d);
-        bar1(user1Data)
+        display1(user1Data)
         // playerOne = d.response;  
         });
 }
 
-function bar1(user1Data){
+function display1(user1Data){
     userP1.innerHTML = `
     <h2> ${user1Data.name}<h2>
     <img src="${user1Data.avatar_url}">
     <p>FOLLOWERS : ${user1Data.followers}</p>
     <p class="repo">Repos: ${user1Data.public_repos}</p>
     <p> Score:${(user1Data.public_repos)*3 + (user1Data.followers)*2}</p>`;
-}
+}    
 // playerTwo
-var user2Data;
-function fetchData(user2) {
-    return new Promise((res,rej) => {
-        var a = new XMLHttpRequest();
-        a.open('GET',`https://api.github.com/users/${user2}`);
-        a.onload = () => res(a);
-        a.onerror = () => rej("error!");
-        a.send();
-    })
-
-}
-
 function button2(e) {
     e.preventDefault();
     var user2 = player2.value;
     fetchData(user2).then(
         d =>{ 
         user2Data = JSON.parse(d.response);
-        // console.log(d);
-        bar2(user2Data)
-        // playerTwo = d.response;
+        display2(user2Data)
         });
 }
 
-function bar2(user2Data){
+function display2(user2Data){
     userP2.innerHTML = `
     <h2> ${user2Data.name}</h2>
     <img src="${user2Data.avatar_url}">
@@ -83,7 +71,7 @@ function bar2(user2Data){
 
 // battlefield
 function battleField() {
-    console.log(user1Data, user2Data, typeof user1Data, typeof user2data)
+    // console.log(user1Data, user2Data, typeof user1Data, typeof user2data)
     p1 = (user1Data.public_repos)*3 + (user1Data.followers)*2;
     p2 = (user2Data.public_repos)*3 + (user2Data.followers)*2;
     
@@ -95,7 +83,6 @@ function battleField() {
         `<h3> ${user2Data.name} is the winner`
     }
 }
-
 
 // playerOne event
 player1btn.addEventListener('click',(e)=>

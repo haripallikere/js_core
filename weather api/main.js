@@ -14,23 +14,20 @@ function fetchData(p) {
         var data = new XMLHttpRequest();
         data.open('GET', `http://api.apixu.com/v1/current.json?key=98272022398e46a48be45258190501&q=${p}`);
         data.onload = () => res(data);
-        data.onerror = () => rej("Couldn't Find A Place");
+        data.onerror = () => rej('oops')
         data.send();
     })
 }
 // userData
 function userData(e) {
-    // console.log('hari')
     e.preventDefault();
     var inputData = inputV.value;
-    console.log(inputData)
     fetchData(inputData).then(
         data => {
             place = JSON.parse(data.response);
             display(place);
-
-        }
-    ).catch(rej => alert(rej))
+        })
+    .catch(rej => alert(rej))
 }
 
 function display(place) {
@@ -51,7 +48,7 @@ function display(place) {
                     <img src="${place.current.condition.icon}" alt="" width=90>
                 </div>
                 <div class="forecast-icon">
-                ${place.location.name == 'Dharamsala'? `<img src="we.jpg" alt="" width=240>`: ""}
+                ${place.location.name == 'Dharamsala' ? `<img src="we.jpg" alt="" width=240>` : ""}
                 </div>
             </div>
             <span>${place.current.cloud}</span>

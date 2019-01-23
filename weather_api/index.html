@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Report</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+    <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="site-content">
+        <div class="site-header">
+            <div class="container">
+                <a href="index.html" class="branding">
+                    <img src="images/logo.png" alt="" class="logo">
+                    <div class="logo-type">
+                        <h1 class="site-title">Weather Report</h1>
+                        <small class="site-description">By your trusted weather guy HARI</small>
+                    </div>
+                </a>
+
+                <!-- Default snippet for navigation -->
+                <div class="main-navigation">
+                    <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+                    <ul class="menu">
+                        <li class="menu-item current-menu-item"><a href="">Home</a></li>
+                        <li class="menu-item"><a href="">Twitter</a></li>
+                        <li class="menu-item weather-item"><a href="">weather</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="hero">
+                <div class="container">
+                    <form action="#" class="find-location">
+                        <input id="find" type="text" placeholder="Find your location...">
+                        <input type="submit" value="Find">
+                        <p id="error"></p>
+                    </form>
+
+                </div>
+            </div>
+            <div class="forecast-table">
+
+            </div>
+
+
+
+</body>
+
+<script src="fetchdata.js"></script>
+<script src="favorite.js"></script>
+<script src="dom.js"></script>
+<script src="main.js"></script>
+
+</html>

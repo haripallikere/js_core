@@ -49,4 +49,4 @@ var truckProp = {
     unloadCargo = function () {
         return this.cargo.pop();
     },
-}
+} 
